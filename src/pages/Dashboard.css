@@ -1,0 +1,135 @@
+    /* body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: #f0f8ff;
+    } */
+
+    /* .sidebar {
+      width: 250px;
+      height: 100vh;
+      background-color: #ffffff;
+      border-right: 1px solid #ddd;
+      padding: 20px;
+    }
+
+    .logo {
+      font-size: 22px;
+      font-weight: bold;
+      margin-bottom: 30px;
+      color: #003f88;
+    }
+
+    .logo span {
+      color: #000;
+    }
+
+    .menu-item {
+      display: flex;
+      align-items: center;
+      padding: 10px 0;
+      color: #333;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    .menu-item i {
+      margin-right: 15px;
+      font-size: 18px;
+    }
+
+    .menu-item.active {
+      background-color: #007bff;
+      color: white;
+      padding-left: 10px;
+      border-radius: 8px;
+    }
+
+    .support {
+      position: absolute;
+      bottom: 20px;
+      display: flex;
+      align-items: center;
+      padding: 10px;
+      font-size: 16px;
+      color: #007bff;
+      cursor: pointer;
+    }
+
+    .support img {
+      width: 40px;
+      margin-right: 10px;
+    }
+
+ */
+        * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+/* 
+    body, html {
+      height: 100%;
+      font-family: Arial, sans-serif;
+    } */
+
+    .home {
+      height: 100vh;
+      color: white;
+      position: relative;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .home h1 {
+      font-size: 48px;
+      font-weight: bold;
+      text-shadow: 2px 2px 8px rgba(0,0,0,0.7);
+    }
+
+    .highlight {
+      background-color: orange;
+      color: black;
+      padding: 0 10px;
+      border-radius: 5px;
+    }
+
+    .features {
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+      margin-top: 50px;
+      flex-wrap: wrap;
+    }
+
+    .feature-box {
+      background-color: rgba(0, 0, 0, 0.85);
+      color: white;
+      padding: 20px 30px;
+      border-radius: 8px;
+      width: 250px;
+      text-align: center;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+      transition: transform 0.3s ease;
+    }
+
+    .feature-box:hover {
+      transform: translateY(-10px);
+    }
+
+    .feature-box i {
+      font-size: 36px;
+      margin-bottom: 15px;
+      color: orange;
+    }
+
+    .feature-box h3 {
+      font-size: 20px;
+      margin-bottom: 10px;
+    }
+
+    .feature-box p {
+      font-size: 14px;
+      color: #ccc;
+    }

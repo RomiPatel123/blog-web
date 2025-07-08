@@ -1,11 +1,11 @@
-body {
+/* body {
   margin: 0;
   font-family: 'Segoe UI', sans-serif;
   background: #f8f9fc;
   color: #333;
-}
+} */
 
-.hero {
+.romi{
   display: flex;
   flex-wrap: wrap;
   align-items: center;
@@ -14,35 +14,35 @@ body {
   padding: 60px 20px;
 }
 
-.hero-text {
+.romi-text {
   flex: 1;
   padding: 20px;
 }
 
-.hero-text h1 {
+.romi-text h1 {
   font-size: 32px;
   margin-bottom: 15px;
 }
 
-.hero-text p {
+.romi-text p {
   font-size: 16px;
   margin-bottom: 20px;
 }
 
-.hero-text .btn {
-  background: #ff7f50;
+.romi-text .btn {
+  background: #1a2138;
   color: white;
   padding: 10px 20px;
   text-decoration: none;
   border-radius: 6px;
 }
 
-.hero-image {
+.romi-image {
   flex: 1;
   padding: 20px;
 }
 
-.hero-image img {
+.romi-image img {
   width: 100%;
   border-radius: 12px;
 }

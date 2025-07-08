@@ -3,7 +3,7 @@
   padding: 4px 8px;
   border-radius: 4px;
   font-weight: bold;
-  color: #000;
+  color: #1b0606;
 }
 
 .hero {
@@ -37,7 +37,7 @@
   padding: 0.5rem 1rem;
   background-color: orange;
   border: none;
-  color: #000;
+  color: #181947;
   font-weight: bold;
   margin-top: 1rem;
   cursor: pointer;
@@ -81,12 +81,12 @@
   margin: 1rem;
   padding: 1.5rem;
   border-radius: 8px;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  box-shadow: 0 2px 8px #22225e;
 }
 
 .badge {
   display: inline-block;
-  background-color: #28c;
+  background-color: rgb(68, 204, 34);
   color: #fff;
   font-size: 0.8rem;
   padding: 4px 8px;
@@ -107,7 +107,7 @@
   padding: 0.5rem 1rem;
   background-color: #f90;
   border: none;
-  color: #000;
+  color: rgb(32, 47, 88);
   font-weight: bold;
   cursor: pointer;
 }

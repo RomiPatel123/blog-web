@@ -1,9 +1,9 @@
-body {
+/* body {
   margin: 0;
   font-family: Arial, sans-serif;
   background: #b2e4eb;
   color: #333;
-}
+} */
 
 .contact-container {
   display: flex;
@@ -46,10 +46,13 @@ body {
   box-shadow: 0 0 10px rgba(0,0,0,0.1);
   width:50% ;
   height: 90%;
+  
+  
 }
 .contact-form{
     padding: 20px;
-}
+  
+ }
 .contact-form h2 {
   margin-bottom: 20px;
   font-size: 30px;

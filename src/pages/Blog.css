@@ -1,7 +1,7 @@
 body {
   margin: 0;
   font-family: 'Segoe UI', sans-serif;
-  background-color: #0f172a;
+  background-color: #232835;
   color: white;
 }
 
@@ -24,7 +24,7 @@ body {
 }
 
 .blog-section .header a {
-  color: #ef4444;
+  color: #e64c53;
   text-decoration: none;
   font-weight: bold;
 }

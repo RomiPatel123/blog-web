@@ -1,33 +1,77 @@
-import React from 'react'
-import './Signup.css'
+import React, { useState } from 'react';
+import './Signup.css';
+
 const Signup = () => {
-    return (
-        <div>
-            <div className=" sign-container">
-                <div className="left-panel">
-                    <h1>Welcome back!</h1>
-                    <p>You can sign in to access with your existing account.</p>
-                </div>
-                <div className="right-panel">
-                    <h2>Sign In</h2>
-                    <form>
-                        <input type="text" placeholder="Username or email" required />
-                        <input type="password" placeholder="Password" required />
+  const [form, setForm] = useState({
+    name: '',
+    email: '',
+    password: '',
+    confirmPassword: '',
+  });
 
-                        <div className="options">
-                            <label><input type="checkbox" /> Remember me</label>
-                            <a href="#">Forgot password?</a>
-                        </div>
+  const handleChange = (e) => {
+    setForm({ ...form, [e.target.name]: e.target.value });
+  };
 
-                        <button type="submit">Sign In</button>
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    if (form.password !== form.confirmPassword) {
+      alert('Passwords do not match');
+      return;
+    }
+    console.log('Signup data:', form);
+    // 🔒 Send form data to backend here
+  };
 
-                        <p className="signup">New here? <a href="#">Create an Account</a></p>
-                    </form>
-                </div>
-            </div>
+  return (
+    <div className="signup-container">
+      <form className="signup-form" onSubmit={handleSubmit}>
+        <h2>Create Account</h2>
 
-        </div>
-    )
-}
+        <input
+          type="text"
+          name="name"
+          placeholder="Full Name"
+          value={form.name}
+          onChange={handleChange}
+          required
+        />
 
-export default Signup
+        <input
+          type="email"
+          name="email"
+          placeholder="Email"
+          value={form.email}
+          onChange={handleChange}
+          required
+        />
+
+        <input
+          type="password"
+          name="password"
+          placeholder="Password"
+          value={form.password}
+          onChange={handleChange}
+          required
+        />
+
+        <input
+          type="password"
+          name="confirmPassword"
+          placeholder="Confirm Password"
+          value={form.confirmPassword}
+          onChange={handleChange}
+          required
+        />
+
+        <button type="submit" className="btn">Sign Up</button>
+
+        <p className="login-redirect">
+          Already have an account? <a href="/login">Log in</a>
+        </p>
+      </form>
+    </div>
+  );
+};
+
+export default Signup;

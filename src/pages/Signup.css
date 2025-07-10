@@ -1,108 +1,70 @@
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: 'Segoe UI', sans-serif;
-}
-
-/* body {
-  background-color: #d1c4e9;
+.signup-container {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #2c3e50 0%, #00bcd4 100%);
   display: flex;
+  justify-content: center;
   align-items: center;
-  justify-content: center;
-  height: 100vh;
-} */
+  padding: 20px;
+}
 
-.sign-container {
-  display: flex;
-  max-width: 900px;
+.signup-form {
+  background-color: white;
+  padding: 30px 40px;
+  border-radius: 10px;
   width: 100%;
-  background: white;
-  border-radius: 12px;
-  overflow: hidden;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-  margin:100px ;
-  margin-left: 300px;
+  max-width: 400px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
 }
 
-.left-panel {
-  flex: 1;
-  background: linear-gradient(135deg, #7b1fa2, #9c27b0);
-  color: white;
-  padding: 60px 40px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
+.signup-form h2 {
+  text-align: center;
+  margin-bottom: 25px;
+  color: #2c3e50;
 }
 
-.left-panel h1 {
-  font-size: 36px;
-  margin-bottom: 15px;
-}
-
-.left-panel p {
-  font-size: 18px;
-  opacity: 0.9;
-}
-
-.right-panel {
-  flex: 1;
-  padding: 60px 40px;
-}
-
-.right-panel h2 {
-  font-size: 28px;
-  margin-bottom: 30px;
-  color: #333;
-}
-
-form input[type="text"],
-form input[type="password"] {
+.signup-form input {
   width: 100%;
   padding: 12px 15px;
-  margin-bottom: 20px;
+  margin-bottom: 15px;
   border: 1px solid #ddd;
-  border-radius: 30px;
+  border-radius: 6px;
+  font-size: 16px;
+}
+
+.signup-form input:focus {
+  border-color: #5460e5;
   outline: none;
-  background-color: #f9f9f9;
 }
 
-.options {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 25px;
-  font-size: 14px;
-}
-
-.options a {
-  color: #7b1fa2;
-  text-decoration: none;
-}
-
-button {
+.btn {
   width: 100%;
   padding: 12px;
-  background: linear-gradient(to right, #7b1fa2, #9c27b0);
-  color: white;
+  background-color: #5460e5;
   border: none;
-  border-radius: 30px;
+  border-radius: 6px;
+  color: white;
   font-size: 16px;
+  font-weight: bold;
   cursor: pointer;
-  transition: 0.3s ease;
+  transition: background 0.2s ease;
 }
 
-button:hover {
-  background: linear-gradient(to right, #6a1b9a, #8e24aa);
+.btn:hover {
+  background-color: #3d4cd9;
 }
 
-.signup {
+.login-redirect {
   text-align: center;
   margin-top: 20px;
   font-size: 14px;
 }
 
-.signup a {
-  color: #7b1fa2;
+.login-redirect a {
+  color: #5460e5;
   text-decoration: none;
+  font-weight: 500;
+}
+
+.login-redirect a:hover {
+  text-decoration: underline;
 }

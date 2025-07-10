@@ -10,32 +10,42 @@ import Blog from './pages/Blog'
 import Login from './pages/Login'
 import Signup from './pages/Signup'
 import Dashboard from './pages/Dashboard';
-import Dashboard2 from './pages/Dashboard2';
+// import Dashboard2 from './pages/Dashboard2';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-
+import DashboardHome from './pages/DashboardHome';
+import Newpost from './pages/Newpost';
+import Mypost from './pages/Mypost';
+import Delete from './pages/Delete';
 
 
 function App() {
 
   return (
     <>
-     <BrowserRouter>
-     <Header/>
-      <Routes>
+      <BrowserRouter>
+        <Header />
+        <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/contact" element={<Contact/>} />
-          <Route path="/about" element={<About/>} />
-          <Route path="/Sidebar" element={<Sidebar/>} />
-          <Route path="/Dashboard" element={<Dashboard/>} />
-          <Route path="/Dashboard2" element={<Dashboard2/>} />
-          <Route path="/search" element={<Search/>} />
-          <Route path="/blog" element={<Blog/>} />
-          <Route path="/signup" element={<Signup/>} />
-          <Route path="/login" element={<Login/>} />
+          <Route path="/contact" element={<Contact />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/Sidebar" element={<Sidebar />} />
+          <Route path="/Dashboard" element={<Dashboard />} />
+          {/* <Route path="/Dashboard2" element={<Dashboard2/>} /> */}
+          <Route path="/search" element={<Search />} />
+          <Route path="/blog" element={<Blog />} />
+          <Route path="/signup" element={<Signup />} />
+          <Route path="/login" element={<Login />} />
 
-      </Routes>
-      <Footer/>
-    </BrowserRouter>
+          <Route path="/dashboard" element={<DashboardHome />}>
+            <Route index element={<Dashboard />} />
+            <Route path="Newpost" element={<Newpost/>} />
+            <Route path="Mypost" element={<Mypost />} />
+            <Route path="Delete" element={<Delete />} />
+          </Route>
+
+        </Routes>
+        <Footer />
+      </BrowserRouter>
     </>
   )
 }

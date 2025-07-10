@@ -73,19 +73,22 @@
     } */
 
     .home {
-      height: 100vh;
-      color: white;
+      height: 600px;
+      color:black;
       position: relative;
       text-align: center;
       display: flex;
       flex-direction: column;
       justify-content: center;
+      background-color: white;
+      
     }
 
     .home h1 {
       font-size: 48px;
       font-weight: bold;
       text-shadow: 2px 2px 8px rgba(0,0,0,0.7);
+      /* margin-bottom: 200px; */
     }
 
     .highlight {
@@ -98,20 +101,26 @@
     .features {
       display: flex;
       justify-content: center;
-      gap: 30px;
-      margin-top: 50px;
+      gap: 40px;
+      margin-top: 60px;
       flex-wrap: wrap;
+      background-color: blue;
+      flex-direction: column;
     }
 
     .feature-box {
-      background-color: rgba(0, 0, 0, 0.85);
+      background-color: rgba(16, 4, 29, 0.85);
       color: white;
       padding: 20px 30px;
       border-radius: 8px;
-      width: 250px;
+      width: 300px;
+      height: 150px;
       text-align: center;
       box-shadow: 0 4px 15px rgba(0,0,0,0.3);
       transition: transform 0.3s ease;
+      justify-content: center;
+      
+
     }
 
     .feature-box:hover {
@@ -126,10 +135,15 @@
 
     .feature-box h3 {
       font-size: 20px;
-      margin-bottom: 10px;
+      margin-bottom: 15px;
     }
 
     .feature-box p {
       font-size: 14px;
       color: #ccc;
+    }
+
+    .fff{
+      display: flex;
+      justify-content: center;
     }

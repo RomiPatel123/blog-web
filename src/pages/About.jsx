@@ -6,8 +6,8 @@ const About = () => {
             <main>
                 <section className="romi">
                     <div className="romi-text">
-                        <h1>We combine data and technology for world-leading enterprise solutions</h1>
-                        <p>Launch your potential with our Enterprise Technology Solutions. Let us help you unlock the full potential of your business with smart and innovative solutions.</p>
+                        <h1>Welcome to my blog website.Create a beautiful blog that fits your style.</h1>
+                        <p>Share your story with the world. Create a beautiful, personalized blog that fits your brand. Grow your audience with built-in marketing tools, or transform your passion into revenue by gating access with a paywall.Know about more in my blog website click in bellow button (know more about us)</p>
                         <a href="#" className="btn">Know more about us</a>
                     </div>
                     <div className="romi-image">
@@ -21,7 +21,8 @@ const About = () => {
                         <h2>We have succeeded in increasing various company services with innovations and product improvement</h2>
                         <p><strong>300+</strong> Projects completed with innovation</p>
                         <p><strong>180+</strong> Experts and professionals involved</p>
-                        <img src="https://plus.unsplash.com/premium_photo-1661329859712-76d8a4500fdb?fm=jpg&q=60&w=3000&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8Z3JvdXAlMjBkaXNjdXNzaW9ufGVufDB8fDB8fHww" alt="Meeting" />
+                        <img src="https://media.assettype.com/deccanherald%2Fimport%2Fsites%2Fdh%2Ffiles%2Farticleimages%2F2021%2F01%2F05%2Fgroup-discussion-istock-603992138-935358-1609832067.jpg?w=undefined&auto=format%2Ccompress&fit=max" alt="Meeting" />
+                       
                     </div>
                 </section>
 

@@ -6,12 +6,13 @@ const Home = () => {
             <main>
                 <section className="hero">
                     <div className="hero-text">
-                        <h2>  👩‍🎓  StudySmart Blogs</h2>
+                        <h2>  🔵 Blogs</h2>
                         <h3>Welcome to My Blog Website.</h3>
                        <img src='https://akm-img-a-in.tosshub.com/indiatoday/images/story/202203/aaron-burden-QJDzYT_K8Xg-unspl_1200x768.jpeg?size=690:388'></img>
                        <button>Read Now</button>
                         <p className="sub-links">
-                            <a href="#">Free Guide on Ransomware Protection</a> |
+                            <a href="#">
+Get a full suite of intuitive design features and powerful marketing tools to create a unique blog that leaves a lasting impression</a> |
                             <a href="#">How to protect your enterprise from APTs</a>
                         </p>
                     </div>

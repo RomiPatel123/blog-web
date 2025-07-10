@@ -22,6 +22,9 @@
 .hero-text h2 {
   font-size: 1.3rem;
   margin-bottom: 0.5rem;
+  margin-right: 500px;
+  color: white;
+  font-size: 25px;
 }
 
 .hero-text h3 {
@@ -36,11 +39,11 @@
 .hero-text button {
   padding: 0.5rem 1rem;
   background-color: orange;
-  border: none;
   color: #181947;
   font-weight: bold;
   margin-top: 1rem;
   cursor: pointer;
+  width: 100px;
 }
 
 .hero-text .sub-links a {

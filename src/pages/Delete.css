@@ -1,0 +1,39 @@
+.delete-button {
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      padding: 12px 24px;
+      font-size: 18px;
+      border-radius: 10px;
+      cursor: pointer;
+      margin-bottom: 10px;
+    }
+
+    .dropdown {
+      width: 300px;
+      background-color: #fff;
+      border: 1px solid #ddd;
+      border-radius: 10px;
+      padding: 15px;
+      box-shadow: 0 0 5px rgba(0,0,0,0.2);
+    }
+
+    .dropdown a {
+      display: block;
+      padding: 10px;
+      color: #0077cc;
+      text-decoration: none;
+      font-size: 16px;
+      border-radius: 5px;
+    }
+
+    .dropdown a:hover {
+      background-color: #f0f0f0;
+    }
+
+    .dropdown a.edit {
+      border: 3px solid red;
+      padding: 8px;
+      font-weight: bold;
+      margin-top: 5px;
+    }

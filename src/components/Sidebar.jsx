@@ -1,30 +1,54 @@
-import React from 'react'
-import './Sidebar.css'
-import { Link } from "react-router-dom";
+import React from 'react';
+import './Sidebar.css';
+import { NavLink } from 'react-router-dom';
+
 const Sidebar = () => {
   return (
-    <div>
+    <div className="Sidebar">
+      <div className="logo">
+        <span>Visit Blogs</span>
+      </div>
 
-      <div className="Sidebar">
-        <div className="logo"><span>Visit Blogs</span></div>
+      {/* Menu Items */}
+      <NavLink
+        to="/dashboard"
+        end
+        className={({ isActive }) => (isActive ? 'menu-item active' : 'menu-item')}
+      >
+        <i className="fa fa-home"></i> 🏠 Dashboard
+      </NavLink>
 
-        <div className="menu-item active"><i className="fa fa-home"></i>🏠 Dashboard</div>
+      <NavLink
+        to="/dashboard/Newpost"
+        className={({ isActive }) => (isActive ? 'menu-item active' : 'menu-item')}
+      >
+        <i className="fa fa-plus-circle"></i> ➕ New Post
+      </NavLink>
 
-       <Link to="/dashboard/Newpost"> <div className="menu-item"><i className="fa fa-plus-circle"></i>  ➕ New Post</div></Link>
-        
-        {/* <div class="menu-item"><i class="fa fa-th-large"></i> Category</div> */}
-        <Link to="/dashboard/Mypost"><div className="menu-item"><i className="fa fa-file-alt"></i>     📰 My Post</div></Link>
-        
-       <Link to="/dashboard/Delete"> <div className="menu-item"><i className="fa fa-dollar-sign"></i>    🗑  Delete</div></Link>
-        {/* <div class="menu-item"><i class="fa fa-chart-bar"></i> Analytics</div> */}
+      <NavLink
+        to="/dashboard/Mypost"
+        className={({ isActive }) => (isActive ? 'menu-item active' : 'menu-item')}
+      >
+        <i className="fa fa-file-alt"></i> 📰 My Post
+      </NavLink>
 
-        <div className="support">
-          <img src="https://cdn-icons-png.flaticon.com/512/706/706830.png" alt="Support"></img>
-          Support
-        </div>
+      <NavLink
+        to="/dashboard/Delete"
+        className={({ isActive }) => (isActive ? 'menu-item active' : 'menu-item')}
+      >
+        <i className="fa fa-trash"></i> 🗑 Delete
+      </NavLink>
+
+      {/* Support Section */}
+      <div className="support">
+        <img
+          src="https://cdn-icons-png.flaticon.com/512/706/706830.png"
+          alt="Support"
+        />
+        Support
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default Sidebar
+export default Sidebar;

@@ -1,0 +1,48 @@
+/* .dashboard-container {
+  display: flex;
+  height: 100vh;
+  background-color: #f4f6f8;
+  z-index:-100;
+}
+
+.dashboard-sidebar {
+  width: 240px;
+  background-color: #2c3e50;
+  color: white;
+  height: 100vh;
+  position: fixed;
+  left: 0;
+  top: 0;
+  overflow-y: hidden;
+}
+
+.dashboard-main {
+  margin-left: 240px; /* account for fixed sidebar 
+  flex: 1;
+  padding: 20px;
+  overflow-y: auto;
+  height: 100vh;
+} */
+
+
+
+
+.dashboard-sidebar {
+  width: 240px;
+  background-color: #2c3e50;
+  color: white;
+  height: calc(100vh - 60px); /* Adjust height to exclude header */
+  position: fixed;
+  top: 0px; /* Below fixed header */
+  left: 0;
+  overflow-y: auto;
+}
+
+.dashboard-main {
+  margin-top: 70px; /* height of fixed header */
+  margin-left: 240px; /* width of fixed sidebar */
+  padding: 20px;
+  height: calc(100vh - 60px); /* to stay within visible screen */
+  overflow-y: auto;
+  background-color: #f4f6f8;
+}

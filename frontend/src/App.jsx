@@ -13,9 +13,10 @@ import Dashboard from './pages/Dashboard';
 // import Dashboard2 from './pages/Dashboard2';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import DashboardHome from './pages/DashboardHome';
-import Newpost from './pages/Newpost';
+import Newpost from './pages/newpost';
 import Mypost from './pages/Mypost';
 import Delete from './pages/Delete';
+import Addblog from './pages/Addblog';
 
 
 function App() {
@@ -39,6 +40,7 @@ function App() {
           <Route path="/dashboard" element={<DashboardHome />}>
             <Route index element={<Dashboard />} />
             <Route path="Newpost" element={<Newpost/>} />
+            <Route path="Addblog" element={<Addblog />} />
             <Route path="Mypost" element={<Mypost />} />
             <Route path="Delete" element={<Delete />} />
           </Route>

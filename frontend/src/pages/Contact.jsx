@@ -36,7 +36,7 @@ const Contact = () => {
       <main>
         <div className="contact-container">
           <div className="left">
-            <h1>Contact Us</h1>
+            <h1>Hello ! Contact Us </h1>
           </div>
           <div className="right">
             <form className="contact-form" onSubmit={handleSubmit} noValidate>

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import './Signup.css';
-
+import axios from 'axios'
 const Signup = () => {
   const [form, setForm] = useState({
     name: '',
@@ -21,6 +21,7 @@ const Signup = () => {
     }
     console.log('Signup data:', form);
     // 🔒 Send form data to backend here
+    axios.post('http://localhost:3000/register', form)
   };
 
   return (

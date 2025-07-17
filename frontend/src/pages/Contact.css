@@ -56,6 +56,8 @@
 
 .form-group {
   margin-bottom: 15px;
+  width: 250px;
+  
 }
 
 .contact-form label {
@@ -106,7 +108,7 @@
 
 .contact-form button:hover {
   background-color: #0198a6;
-  transform: translateY(-2px);
+  transform: translateY(-2px);  
 }
 
 .contact-info {
@@ -115,6 +117,7 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
+  margin-top: 25px;
 }
 
 .contact-info h3,

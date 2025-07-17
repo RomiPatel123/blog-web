@@ -1,11 +1,22 @@
-import React from 'react'
+import React, {useState} from 'react'
 import './Mypost.css'
+import axios from 'axios'
 const Mypost = () => {
+             const [post, setpost] = useState({
+            title: '',
+            category: '',
+            content: '',
+          });
+      const getPost =(e) => {   
+          const res = axios.post('http://localhost:3000/post', post)
+          console.log(res);
+      }
+
     return (
         <div>
             <div className="post-section">
                 <h2>MY <span>BLOG</span></h2>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore.</p>
+                <p>Welcome to our blog! This is where we share insights, stories, tips, and updates that matter to you. Whether you're here to learn, explore, or get inspired, our blog is designed to deliver value with every post.</p>
 
                 <div className="blog-grid">
 

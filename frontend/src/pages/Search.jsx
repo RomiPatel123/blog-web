@@ -47,7 +47,7 @@ const Search = () => {
             <div className="results">
               <div className="search-card">
                 <img
-                  src="https://images.unsplash.com/photo-1516321318427-0f6a0b7b6163?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80"
+                  src="https://5.imimg.com/data5/SELLER/Default/2021/5/JF/WO/HA/13429761/whatsapp-image-2021-04-22-at-7-34-26-pm-jpeg-500x500.jpeg"
                   alt="Study session"
                 />
                 <h3>Study Services</h3>
@@ -69,7 +69,7 @@ const Search = () => {
 
               <div className="search-card">
                 <img
-                  src="https://images.unsplash.com/photo-1543269865-0a740d43b3-9e8b4b6d7e3?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80"
+                  src="https://www.patriotsoftware.com/wp-content/uploads/2018/09/best-business-structure.jpg"
                   alt="Team collaboration"
                 />
                 <h3>Making the Most Out of Your Small Business</h3>

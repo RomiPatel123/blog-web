@@ -42,6 +42,7 @@ const Home = () => {
             <button>Read Now</button>
           </div>
           <div className="card update-box">
+            <span className="badge">Infographic</span>
             <h3>Never Miss an Update</h3>
             <p>Subscribe to our blog for regular cybersecurity updates straight to your inbox.</p>
             <button>Subscribe</button>

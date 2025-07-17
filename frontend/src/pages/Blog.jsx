@@ -18,7 +18,7 @@ const Blog = () => {
           <div className="cards">
             <div className="card">
               <img
-                src="https://images.unsplash.com/photo-1516321318427-0f6a0b7b6163?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80"
+                src="https://assets.keap.com/image/upload/w_569,h_395,c_limit,q_95,dpr_1/v1535052909/infusionsoft.com/homepage/GettyImages-626669886.webp"
                 alt="URL shortening guide"
               />
               <h3>How to Shorten URLs and Get Paid</h3>

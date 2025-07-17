@@ -7,22 +7,23 @@
       max-width: 1200px;
       margin: 0 auto;
       text-align: center;
+    
     }
 
     .post-section h2 {
       font-size: 32px;
       margin-bottom: 10px;
       font-weight: bold;
-      color: white;
+      color: rgb(3, 37, 61);
     }
 
     .post-section h2 span {
-      color: #29e3b1;
+      color: #149a76;
     }
 
     .post-section p {
-      font-size: 14px;
-      color: #bbb;
+      font-size: 20px ;
+      color:black bold;
       margin-bottom: 40px;
     }
 

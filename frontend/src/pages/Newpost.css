@@ -1,16 +1,16 @@
     h2 {
       text-align: center;
       margin-bottom: 40px;
-      color: #333;
+      color: #041523;
+      font-size: 25px bold;
     }
-
     .posts-container {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-      gap: 20px;
+      gap: 40px;
       max-width: 1100px;
       margin: 0 auto;
-      background-color: rgb(153, 210, 210);
+      background-color: rgb(13, 171, 171);
 
     }
     .post-card {
@@ -19,6 +19,7 @@
       overflow: hidden;
       box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
       transition: transform 0.3s ease;
+      text-align: center;
     }
 
     .post-card:hover {
@@ -36,19 +37,31 @@
     }
 
     .post-title {
-      font-size: 18px;
+      font-size: 18px bold;
       font-weight: bold;
-      color: #333;
+      color:black;
       margin-bottom: 5px;
     }
 
     .post-date {
       font-size: 12px;
-      color: #888;
+      color:black;
       margin-bottom: 10px;
     }
 
     .post-description {
       font-size: 14px;
-      color: #666;
+      color: black;
     }
+  .create-btn {
+     text-align: center;
+     justify-content: center;
+     font-size: 25px ;
+     margin-left: 130%;
+     margin-bottom: 30px;
+     width: 200px;
+     height: 50px;
+     display: flex;
+    color: black bold;
+     
+  }

@@ -4,7 +4,7 @@ import './Delete.css'
 const Delete = () => {
     return (
         <div>
-            <button className="delete-button">Post</button>
+            <button className="delete-button"> Delete Posts</button>
 
             <div className="dropdown">
                 <a href="#"><span>📝</span> Add Comment</a>

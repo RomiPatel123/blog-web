@@ -1,33 +1,29 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import './Login.css';
-
+import axios from 'axios'
+import { useNavigate } from 'react-router-dom';
 const Login = () => {
-  const [formData, setFormData] = useState({ username: '', password: '' });
+  const [formData, setFormData] = useState({ email: '', password: '' });
   const [errors, setErrors] = useState({});
   const [showPassword, setShowPassword] = useState(false);
-
+  const navigate = useNavigate();
   const handleChange = (e) => {
     const { name, value } = e.target;
-    setFormData({ ...formData, [name]: value });
+    setFormData({ ...formData, [name]: value }); 
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
     const newErrors = {};
-    if (!formData.username.trim()) newErrors.username = 'Username or email is required';
-    else if (!/\S+@\S+\.\S+/.test(formData.username) && formData.username.length < 3) {
-      newErrors.username = 'Enter a valid email or username (minimum 3 characters)';
-    }
+    
     if (!formData.password.trim()) newErrors.password = 'Password is required';
     else if (formData.password.length < 6) newErrors.password = 'Password must be at least 6 characters';
-    if (Object.keys(newErrors).length === 0) {
+    const res = axios.post('http://localhost:3000/login', formData)
       alert('Login successful!');
-      setFormData({ username: '', password: '' });
-      setErrors({});
-    } else {
-      setErrors(newErrors);
-    }
+      setFormData({ email: '', password: '' });
+      navigate('/dashboard');
+     
   };
 
   return (
@@ -44,14 +40,14 @@ const Login = () => {
               <div className="form-group">
                 <input
                   type="text"
-                  name="username"
-                  placeholder="Username or email"
-                  value={formData.username}
+                  name="email"
+                  placeholder="email"
+                  value={formData.email}
                   onChange={handleChange}
-                  aria-describedby={errors.username ? 'username-error' : undefined}
+                  aria-describedby={errors.email ? 'email-error' : undefined}
                   required
                 />
-                {errors.username && <span id="username-error" className="error">{errors.username}</span>}
+                {errors.email && <span id="email-error" className="error">{errors.email}</span>}
               </div>
               <div className="form-group">
                 <div className="password-wrapper">

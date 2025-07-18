@@ -1,17 +1,15 @@
 import React, {useState} from 'react'
 import './Mypost.css'
 import axios from 'axios'
+import { useEffect } from 'react';
 const Mypost = () => {
-             const [post, setpost] = useState({
-            title: '',
-            category: '',
-            content: '',
-          });
       const getPost =(e) => {   
-          const res = axios.post('http://localhost:3000/post', post)
+          const res = axios.get('http://localhost:3000/post')
           console.log(res);
       }
-
+      useEffect(()=>{
+        getPost();
+      },[])
     return (
         <div>
             <div className="post-section">

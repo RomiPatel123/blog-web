@@ -1,92 +1,132 @@
-import React from 'react'
-import './Newpost.css'
-const newpost = () => {
-    return (
-        <div>
-            <div className='h2'>
-                <h2>Latest Posts</h2>
-                <p>Ready to share something new with the world? Use the editor below to craft your latest blog post. Whether it’s a how-to guide, a personal story, or a news update, this is your space to write, edit, and publish.
+import React, { useState, useRef } from "react";
+import { Editor } from "@tinymce/tinymce-react";
 
-                </p>
-            </div>
-
-            <div className="posts-container">
-                <div className="post-card">
-                    <div className="post-image">
-                        <img src="https://eternitymarketing.com/assets/image-cache/blog/How-to-Write-SEO-Friendly-Blogs-900x600px.2db26ef5.jpg" alt="Post 1"></img>
-                    </div>
-                    <div className="post-content">
-                        <div className="post-title">Post 1 Headline</div>
-                        <div className="post-date">Tue Jan 25 2020</div>
-                        <div className="post-description">Sample small text. Lorem ipsum dolor sit amet.</div>
-                    </div>
-                </div>
-
-                <div className="post-card">
-                    <div className="post-image">
-                        <img src="https://timeandupdate.com/wp-content/uploads/2019/11/Blogging-For-Marketing-ENX2.jpg" alt="Post 2"></img>
-                    </div>
-                    <div className="post-content">
-                        <div className="post-title">Post 2 Headline</div>
-                        <div className="post-date">Thu Jun 25 2020</div>
-                        <div className="post-description">Sample small text. Lorem ipsum dolor sit amet.</div>
-                    </div>
-                </div>
-
-                <div className="post-card">
-                    <div className="post-image">
-                        <img src="https://img.freepik.com/free-photo/technology-communication-icons-symbols-concept_53876-120314.jpg" alt="Post 3"></img>
-                    </div>
-                    <div className="post-content">
-                        <div className="post-title">Post 3 Headline</div>
-                        <div className="post-date">Fri Aug 12 2020</div>
-                        <div className="post-description">Sample small text. Lorem ipsum dolor sit amet.</div>
-                    </div>
-                </div>
-
-                <div className="post-card">
-                    <div className="post-image">
-                        <img src="https://images.unsplash.com/photo-1593642634367-d91a135587b5" alt="Post 4"></img>
-                    </div>
-                    <div className="post-content">
-                        <div className="post-title">Post 4 Headline</div>
-                        <div className="post-date">Mon Nov 09 2020</div>
-                        <div className="post-description">Sample small text. Lorem ipsum dolor sit amet.</div>
-                    </div>
-                </div>
-
-                <div className="post-card">
-                    <div className="post-image">
-                        <img src="https://st2.depositphotos.com/3591429/7357/i/450/depositphotos_73574925-stock-photo-business-people-presentation-seminar-blog.jpg" alt="Post 3"></img>
-                    </div>
-                    <div className="post-content">
-                        <div className="post-title">Post 5 Headline</div>
-                        <div className="post-date">Fri Aug 12 2020</div>
-                        <div className="post-description">Sample small text. Lorem ipsum dolor sit amet.</div>
-                    </div>
-                </div>
-
-
-                 <div className="post-card">
-                    <div className="post-image">
-                        <img src="https://www.webnode.com/blog/wp-content/uploads/2023/07/Travel-blog-featured.jpg" alt="Post 3"></img>
-                    </div>
-                    <div className="post-content">
-                        <div className="post-title">Post 6 Headline</div>
-                        <div className="post-date">Fri Aug 12 2020</div>
-                        <div className="post-description">Sample small text. Lorem ipsum dolor sit amet.</div>
-                    </div>
-                    
-                </div>
-                <div className='create-btn'>
-                <button onclick="Click here"><a href="/dashboard/Addblog">Create Blogs</a></button>
-
-                </div>
+const AddBlog = () => {
+  const editorRef = useRef(null);
+  const [title, setTitle] = useState("");
+  const [imageUrl, setImageUrl] = useState("");
+  const [loading, setLoading] = useState(false);
+  const [userId, setUserId] = useState(localStorage.getItem("userId"));
   
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    const content = editorRef.current?.getContent();
 
-            </div>
-        </div>
-    )
-}
 
-export default newpost
+    const blogData = {
+      title,
+      imageUrl,
+      content,
+      userId,
+    };
+
+    setLoading(true);
+
+    try {
+      const response = await fetch("http://localhost:3000/addBlog", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(blogData),
+      });
+
+      if (response.ok) {
+        const result = await response.json();
+        alert("Blog added successfully!");
+        console.log(result);
+        setTitle("");
+        setImageUrl("");
+        editorRef.current.setContent(""); // reset editor
+      } else {
+        alert("Error saving blog.");
+      }
+    } catch (error) {
+      console.error("Error:", error);
+      alert("Something went wrong.");
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  return (
+    <div style={{ maxWidth: "800px", margin: "auto", padding: "20px" }}>
+      <h2>Add New Blog</h2>
+      <form onSubmit={handleSubmit}>
+        {/* Title Input */}
+        <input
+          type="text"
+          placeholder="Enter blog title"
+          value={title}
+          onChange={(e) => setTitle(e.target.value)}
+          required
+          style={{
+            width: "100%",
+            padding: "10px",
+            fontSize: "16px",
+            marginBottom: "15px",
+            borderRadius: "4px",
+            border: "1px solid #ccc",
+          }}
+        />
+
+        {/* Image URL Input */}
+        <input
+          type="text"
+          placeholder="Insert image URL for blog header"
+          value={imageUrl}
+          onChange={(e) => setImageUrl(e.target.value)}
+          required
+          style={{
+            width: "100%",
+            padding: "10px",
+            fontSize: "16px",
+            marginBottom: "15px",
+            borderRadius: "4px",
+            border: "1px solid #ccc",
+          }}
+        />
+
+        {/* Rich Text Editor */}
+        <Editor
+          apiKey="l6uehhcdr880cgv4cx7sqbzn1mwotm4fwwn8jbo67xjlq0qb"
+          onInit={(evt, editor) => (editorRef.current = editor)}
+          initialValue="<p>Start writing your blog here...</p>"
+          init={{
+            height: 400,
+            menubar: true,
+            plugins: [
+              "advlist autolink lists link image charmap preview anchor",
+              "searchreplace visualblocks code fullscreen",
+              "insertdatetime media table code help wordcount",
+            ],
+            toolbar:
+              "undo redo | formatselect | bold italic underline strikethrough | " +
+              "alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | " +
+              "link image media table | code fullscreen | help",
+          }}
+        />
+
+        {/* Submit Button */}
+        <button
+          type="submit"
+          disabled={loading}
+          style={{
+            marginTop: "20px",
+            padding: "10px 20px",
+            fontSize: "16px",
+            backgroundColor: "#007bff",
+            color: "#fff",
+            border: "none",
+            borderRadius: "4px",
+            cursor: loading ? "not-allowed" : "pointer",
+          }}
+        >
+          {loading ? "Submitting..." : "Submit Blog"}
+        </button>
+      </form>
+    </div>
+  );
+};
+
+export default AddBlog;

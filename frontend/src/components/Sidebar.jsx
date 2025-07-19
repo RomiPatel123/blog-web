@@ -15,29 +15,23 @@ const Sidebar = () => {
         end
         className={({ isActive }) => (isActive ? 'menu-item active' : 'menu-item')}
       >
-        <i className="fa fa-home"></i> 🏠 Dashboard
+        <i className="fa fa-home"></i> Dashboard
       </NavLink>
 
       <NavLink
         to="/dashboard/Newpost"
         className={({ isActive }) => (isActive ? 'menu-item active' : 'menu-item')}
       >
-        <i className="fa fa-plus-circle"></i> ➕ New Post
+        <i className="fa fa-plus-circle"></i> New Post
       </NavLink>
 
       <NavLink
         to="/dashboard/Mypost"
         className={({ isActive }) => (isActive ? 'menu-item active' : 'menu-item')}
       >
-        <i className="fa fa-file-alt"></i> 📰 My Post
+        <i className="fa fa-file-alt"></i> My Post
       </NavLink>
 
-      <NavLink
-        to="/dashboard/Delete"
-        className={({ isActive }) => (isActive ? 'menu-item active' : 'menu-item')}
-      >
-        <i className="fa fa-trash"></i> 🗑 Delete
-      </NavLink>
 
       {/* Support Section */}
       <div className="support">

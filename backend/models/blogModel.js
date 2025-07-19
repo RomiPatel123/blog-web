@@ -1,14 +1,17 @@
 import mongoose, { model, Schema } from "mongoose";
-
 const blogSchema = new Schema({
     title:{
         type: String,
     },
-    category:{
-        type:String,
+    imageUrl:{
+        type: String
     },
     content:{
         type: String,
+    },
+    userId:{
+        type: mongoose.Types.ObjectId,
+        ref:'User'
     }
 });
 

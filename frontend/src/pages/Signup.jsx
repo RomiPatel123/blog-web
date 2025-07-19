@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import './Signup.css';
-import axios from 'axios'
+import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
+
 const Signup = () => {
   const [form, setForm] = useState({
     name: '',
@@ -9,19 +11,48 @@ const Signup = () => {
     confirmPassword: '',
   });
 
+  const navigate = useNavigate(); // for programmatic navigation
+
   const handleChange = (e) => {
     setForm({ ...form, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
+
     if (form.password !== form.confirmPassword) {
       alert('Passwords do not match');
       return;
     }
-    console.log('Signup data:', form);
-    // 🔒 Send form data to backend here
-    axios.post('http://localhost:3000/register', form)
+
+    try {
+      const { data } = await axios.post('http://localhost:3000/register', {
+        name: form.name,
+        email: form.email,
+        password: form.password,
+      });
+
+      if (data?.success) {
+        // Save userId in localStorage
+        localStorage.setItem("userId", data.newUser._id);
+
+        // Reset form
+        setForm({
+          name: '',
+          email: '',
+          password: '',
+          confirmPassword: '',
+        });
+
+        // Redirect to dashboard
+        navigate('/dashboard');
+      } else {
+        alert(data.message || "Signup failed");
+      }
+    } catch (error) {
+      console.error("Signup error:", error);
+      alert(error.response?.data?.message || "Something went wrong");
+    }
   };
 
   return (

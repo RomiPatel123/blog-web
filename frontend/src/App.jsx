@@ -13,10 +13,11 @@ import Dashboard from './pages/Dashboard';
 // import Dashboard2 from './pages/Dashboard2';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import DashboardHome from './pages/DashboardHome';
-import Newpost from './pages/newpost';
+import Newpost from './pages/Newpost';
 import Mypost from './pages/Mypost';
 import Delete from './pages/Delete';
 import Addblog from './pages/Addblog';
+import BlogDetail from './pages/BlogDetail';
 
 
 function App() {
@@ -34,6 +35,7 @@ function App() {
           {/* <Route path="/Dashboard2" element={<Dashboard2/>} /> */}
           <Route path="/search" element={<Search />} />
           <Route path="/blog" element={<Blog />} />
+          <Route path="/blog/:id" element={<BlogDetail />} />
           <Route path="/signup" element={<Signup />} />
           <Route path="/login" element={<Login />} />
 

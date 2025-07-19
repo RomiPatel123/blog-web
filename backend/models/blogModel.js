@@ -13,7 +13,7 @@ const blogSchema = new Schema({
         type: mongoose.Types.ObjectId,
         ref:'User'
     }
-});
+},{timestamps:true});
 
 const blog = model('blog', blogSchema);
 export default blog;

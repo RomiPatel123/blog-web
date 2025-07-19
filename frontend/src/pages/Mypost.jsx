@@ -1,58 +1,89 @@
-import React, {useState} from 'react'
-import './Mypost.css'
-import axios from 'axios'
-import { useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
+import './Mypost.css';
+import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
+import { FaEdit, FaTrash } from 'react-icons/fa';
+import striptags from "striptags";
+
 const Mypost = () => {
-      const getPost =(e) => {   
-          const res = axios.get('http://localhost:3000/post')
-          console.log(res);
-      }
-      useEffect(()=>{
-        getPost();
-      },[])
-    return (
-        <div>
-            <div className="post-section">
-                <h2>MY <span>BLOG</span></h2>
-                <p>Welcome to our blog! This is where we share insights, stories, tips, and updates that matter to you. Whether you're here to learn, explore, or get inspired, our blog is designed to deliver value with every post.</p>
+  const [posts, setPosts] = useState([]);
+  const userId = localStorage.getItem('userId');
+  const navigate = useNavigate();
 
-                <div className="blog-grid">
+  const getPost = async () => {
+    try {
+      const res = await axios.get(`http://localhost:3000/userBlog/${userId}`);
+      setPosts(res.data);
+    } catch (error) {
+      console.error("Failed to fetch posts", error);
+    }
+  };
 
-                    <div className="blog-card">
-                        <img src="https://images.stockcake.com/public/f/0/6/f06df0a9-588c-45b3-b670-92b498d9b7a1_large/group-study-session-stockcake.jpg" alt="Post 1"></img>
-                            <div className="blog-content">
-                                <div className="blog-date">📅 April 30, 2022 | Design</div>
-                                <div className="blog-title">LATEST NEWS POST</div>
-                                <div className="blog-desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Enim eveniet incidunt.</div>
-                                <a href="#" className="read-more">Read More</a>
-                            </div>
-                    </div>
+  useEffect(() => {
+    if (userId) getPost();
+  }, [userId]);
 
-                    <div className="blog-card">
-                        <img src="https://images.unsplash.com/photo-1603791440384-56cd371ee9a7" alt="Post 2"></img>
-                            <div className="blog-content">
-                                <div className="blog-date">📅 April 18, 2022 | Project</div>
-                                <div className="blog-title">LATEST NEWS POST</div>
-                                <div className="blog-desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Enim eveniet incidunt.</div>
-                                <a href="#" className="read-more">Read More</a>
-                            </div>
-                    </div>
+  const handleDelete = async (postId) => {
+    const confirmDelete = window.confirm("Are you sure you want to delete this post?");
+    if (!confirmDelete) return;
 
-                    <div className="blog-card">
-                        <img src="https://images.unsplash.com/photo-1573164713988-8665fc963095" alt="Post 3"></img>
-                            <div className="blog-content">
-                                <div className="blog-date">📅 April 7, 2022 | Creative</div>
-                                <div className="blog-title">LATEST NEWS POST</div>
-                                <div className="blog-desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Enim eveniet incidunt.</div>
-                                <a href="#" className="read-more">Read More</a>
-                            </div>
-                    </div>
+    console.log('PostId--->', postId);
 
+    try {
+      await axios.delete(`http://localhost:3000/deleteBlog/${postId}`);
+      setPosts(prev => prev.filter(post => post._id !== postId));
+    } catch (error) {
+      console.error("Failed to delete post", error);
+    }
+  };
+
+  const handleEdit = (postId) => {
+    navigate(`/dashboard/edit-blog/${postId}`);
+  };
+
+  return (
+    <div className="post-section">
+      <h2>MY <span>BLOG</span></h2>
+      <div className="blog-grid">
+        {posts.length > 0 ? (
+          posts.map((post, index) => (
+            <div className="blog-card" key={index}>
+              <img
+                src={post.imageUrl || 'https://via.placeholder.com/400x250'}
+                alt={`Post ${index + 1}`}
+              />
+              <div className="blog-content">
+                <div className="blog-date">
+                  📅 {new Date(post.date || post.createdAt).toDateString()} | {post.category || 'General'}
                 </div>
+                <div className="blog-titlel">{post.title}</div>
+                <div className="blog-desc">
+                    <p>{striptags(post.content).slice(0, 100)}...</p>
+                </div>
+                <a href={`/blog/${post._id}`} className="read-more">
+                  Read More
+                </a>
+                <div className="blog-actions">
+                  <FaEdit
+                    className="icon-btn edit-icon"
+                    title="Edit"
+                    onClick={() => handleEdit(post._id)}
+                  />
+                  <FaTrash
+                    className="icon-btn delete-icon"
+                    title="Delete"
+                    onClick={() => handleDelete(post._id)}
+                  />
+                </div>
+              </div>
             </div>
+          ))
+        ) : (
+          <p style={{ marginTop: '2rem', fontStyle: 'italic' }}>No posts found.</p>
+        )}
+      </div>
+    </div>
+  );
+};
 
-        </div>
-    )
-}
-
-export default Mypost
+export default Mypost;

@@ -5,10 +5,6 @@ import { NavLink } from 'react-router-dom';
 const Sidebar = () => {
   return (
     <div className="Sidebar">
-      <div className="logo">
-        <span>Visit Blogs</span>
-      </div>
-
       {/* Menu Items */}
       <NavLink
         to="/dashboard"

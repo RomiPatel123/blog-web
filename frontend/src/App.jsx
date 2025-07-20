@@ -14,8 +14,6 @@ import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom';
 import DashboardHome from './pages/DashboardHome';
 import Newpost from './pages/Newpost';
 import Mypost from './pages/Mypost';
-import Delete from './pages/Delete';
-import Addblog from './pages/Addblog';
 import BlogDetail from './pages/BlogDetail';
 import EditBlog from './pages/EditBlog';
 
@@ -44,9 +42,7 @@ function App() {
         <Route path="/dashboard" element={<DashboardHome />}>
           <Route index element={<Dashboard />} />
           <Route path="Newpost" element={<Newpost />} />
-          <Route path="Addblog" element={<Addblog />} />
           <Route path="Mypost" element={<Mypost />} />
-          <Route path="Delete" element={<Delete />} />
           <Route path="edit-blog/:postId" element={<EditBlog />} />
         </Route>
       </Routes>

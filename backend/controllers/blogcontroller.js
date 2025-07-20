@@ -79,4 +79,17 @@ export const updateBlog = async (req, res) => {
   }
 };
 
+export const totalBlog =  async (req, res) => {
+  const { userId } = req.params;
+
+  try {
+    const total = await Blog.countDocuments({ userId });
+    res.json({ total, success: true});
+  } catch (err) {
+    console.error("Post count error:", err);
+    res.status(500).json({ message: "Error fetching post counts" });
+  }
+};
+
+
 
